@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const port = 5000;
 const bodyParser = require("body-parser");
+
+const config = require("./config/key");
+
 const { User } = require("./models/User");
 
 //application/x-www-form-urlencoded
@@ -12,14 +15,12 @@ app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
 mongoose
-    .connect(
-        "mongodb+srv://LeeHY:1234@cluster0.9jkksvw.mongodb.net/?retryWrites=true&w=majority"
-    )
+    .connect(config.mongoURI)
     .then(() => console.log("MongoDB Connected.."))
     .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-    res.send("Hello World! 해치웠나 굿");
+    res.send("Hello World!");
 });
 
 app.post("/register", (req, res) => {
