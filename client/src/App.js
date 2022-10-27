@@ -9,7 +9,7 @@ function App() {
     return (
         <Router>
             <div>
-                <ul>
+                {/* <ul>
                     <li>
                         <Link to="/">Home</Link>
                     </li>
@@ -21,7 +21,7 @@ function App() {
                     </li>
                 </ul>
 
-                <hr />
+                <hr /> */}
 
                 <Routes>
                     <Route exact path="/" element={<LandingPage />} />
